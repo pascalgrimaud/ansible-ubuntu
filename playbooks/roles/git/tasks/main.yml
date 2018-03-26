@@ -1,4 +1,15 @@
 ---
+- name: Add repository ppa:git-core/ppa
+  become: true
+  apt_repository:
+    repo: 'ppa:git-core/ppa'
+    state: present
+
+- name: Update all packages to the latest version
+  become: true
+  apt:
+    upgrade: dist
+
 - name: Install git
   become: true
   apt:
