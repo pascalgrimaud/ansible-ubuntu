@@ -1,5 +1,7 @@
 # ansible-ubuntu
 
+[![Build Status][travis-image]][travis-url]
+
 ## Test with Docker
 
 ```
@@ -36,3 +38,6 @@ Install NodeJS
 ```
 ansible-playbook -v node.yml -K -e version=8.10.0
 ```
+
+[travis-image]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu.svg?branch=master
+[travis-url]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu
