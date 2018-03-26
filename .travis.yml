@@ -11,14 +11,14 @@ install:
 script:
   - docker exec -it containertest ansible --version
   # tools
-  - docker exec -it containertest ansible-playbook -v tools.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest ansible-playbook tools.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest vim --version
   - docker exec -it containertest curl --version
   - docker exec -it containertest wget --version
   # openjdk8
-  - docker exec -it containertest ansible-playbook -v openjdk8.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version
   # NodeJS
-  - docker exec -it containertest ansible-playbook -v  node.yml -e ansible_become_pass=jhipster -e version=8.10.0
+  - docker exec -it containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e version=8.10.0
   - docker exec -it containertest node -v
   - docker exec -it containertest npm -v
