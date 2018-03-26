@@ -15,6 +15,9 @@ script:
   - docker exec -it containertest vim --version
   - docker exec -it containertest curl --version
   - docker exec -it containertest wget --version
+  # git
+  - docker exec -it containertest ansible-playbook git.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest git version
   # openjdk8
   - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version

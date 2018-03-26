@@ -1,0 +1,8 @@
+- hosts: localhost
+  roles:
+    - tools
+    - git
+    - openjdk8
+    - { role: node, version: '8.10.0' }
+    - zsh
+    - yarn

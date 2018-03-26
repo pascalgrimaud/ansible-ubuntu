@@ -1,0 +1,15 @@
+---
+- name: Install git
+  become: true
+  apt:
+    name: git
+    state: present
+  with_items: "git"
+
+- name: Config git user.name={{username}}
+  shell: git config --global user.name "{{username}}"
+  when: username is defined
+
+- name: Config git user.email={{email}}
+  shell: git config --global user.email "{{email}}"
+  when: email is defined

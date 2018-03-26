@@ -1,0 +1,20 @@
+---
+- name: Install docker-compose
+  become: true
+  become_user: root
+  shell: curl -L https://github.com/docker/compose/releases/download/{{DOCKER_COMPOSE_VERSION}}/docker-compose-"$(uname -s)"-"$(uname -m)" > /tmp/docker-compose
+
+- name: Copy docker-compose to /usr/local/bin
+  become: true
+  become_user: root
+  copy:
+    src: /tmp/docker-compose
+    dest: /usr/local/bin/docker-compose
+    force: yes
+
+- name: Add executable mode to docker-compose 
+  become: true
+  become_user: root
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: 0775

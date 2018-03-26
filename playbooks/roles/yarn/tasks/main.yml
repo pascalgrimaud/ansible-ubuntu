@@ -1,0 +1,13 @@
+---
+- name: Install yarn
+  shell: curl -o- -L https://yarnpkg.com/install.sh | bash
+
+- name: Add yarn to zsh
+  shell: |
+    if [[ -a ~/.zshrc ]]; then
+    echo '' >> ~/.zshrc
+    echo '# yarn' >> ~/.zshrc
+    echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> ~/.zshrc
+    fi
+  args:
+    executable: /bin/bash
