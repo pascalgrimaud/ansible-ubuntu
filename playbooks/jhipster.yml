@@ -2,7 +2,9 @@
   roles:
     - tools
     - git
+    - zsh
+    - tilix
     - openjdk8
     - { role: node, version: '8.10.0' }
-    - zsh
     - yarn
+    - docker-compose
