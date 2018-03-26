@@ -15,6 +15,8 @@ docker run --rm -it ansible bash
 
 ## Roles
 
+Before launching roles, go into `playbooks` folder.
+
 Install curl, vim, wget
 
 ```

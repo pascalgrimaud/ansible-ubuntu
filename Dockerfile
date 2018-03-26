@@ -19,6 +19,6 @@ RUN \
     /var/tmp/*
 COPY . /home/jhipster/app
 RUN chown -R jhipster:jhipster /home/jhipster/
-WORKDIR /home/jhipster/app/
+WORKDIR /home/jhipster/app/playbooks/
 USER jhipster
 CMD ["tail", "-f", "/home/jhipster/app/README.md"]
