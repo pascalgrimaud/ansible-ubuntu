@@ -12,7 +12,6 @@ docker build -t ansible:test .
 docker run --rm -it ansible bash
 ```
 
-
 ## Roles
 
 Before launching roles, go into `playbooks` folder:
@@ -65,15 +64,29 @@ Install a specific version of NodeJS
 ansible-playbook -v node.yml -K -e version=8.10.0
 ```
 
-### zsh, oh-my-zsh and spaceship
+### zsh, oh-my-zsh, fonts-powerline and spaceship-prompt
 
-Install zsh with spaceship
+Install zsh, on-my-zsh, fonts-powerline and spaceship-prompt
 
 ```
 ansible-playbook -v zsh.yml -K
 ```
 
+### tilix
 
+Install tilix
+
+```
+ansible-playbook -v tilix.yml -K
+```
+
+### Docker Compose
+
+Install Docker Compose
+
+```
+ansible-playbook -v dockercompose.yml -K
+```
 
 [travis-image]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu.svg?branch=master
 [travis-url]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu
