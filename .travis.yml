@@ -21,6 +21,9 @@ script:
   # zsh
   - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest zsh --version
+  # tilix
+  - docker exec -it containertest ansible-playbook tilix.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest tilix --version
   # openjdk8
   - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version

@@ -1,0 +1,13 @@
+---
+- name: Add repository ppa:webupd8team/terminix
+  become: true
+  apt_repository:
+    repo: 'ppa:webupd8team/terminix'
+    state: present
+
+- name: Install tilix
+  become: true
+  apt:
+    name: tilix
+    state: present
+  with_items: "tilix"
