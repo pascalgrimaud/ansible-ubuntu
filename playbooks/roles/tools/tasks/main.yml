@@ -3,19 +3,16 @@
   become: true
   apt:
     name: vim
-    state: present
-  with_items: "vim"
+    state: latest
 
 - name: Install curl
   become: true
   apt:
     name: curl
-    state: present
-  with_items: "curl"
+    state: latest
 
 - name: Install wget
   become: true
   apt:
     name: wget
-    state: present
-  with_items: "wget"
+    state: latest
