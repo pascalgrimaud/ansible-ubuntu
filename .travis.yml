@@ -5,7 +5,7 @@ services:
 before_install:
   - docker version
 install:
-  - docker build -t ansible:test .
+  - docker build -q -t ansible:test .
   - docker images
   - docker run --name containertest -d ansible:test
 script:
