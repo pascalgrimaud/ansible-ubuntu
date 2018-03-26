@@ -18,3 +18,7 @@ script:
   # openjdk8
   - docker exec -it containertest ansible-playbook -v openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version
+  # NodeJS
+  - docker exec -it containertest ansible-playbook -v  node.yml -e ansible_become_pass=jhipster -e version=8.10.0
+  - docker exec -it containertest node -v
+  - docker exec -it containertest npm -v
