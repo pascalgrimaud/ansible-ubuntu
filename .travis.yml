@@ -32,7 +32,8 @@ script:
   - docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest bash -c 'cat ~/.zshrc'
   - docker exec -it containertest bash -c 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"'
-  - docker exec -it containertest yarn -v
+  - docker exec -it containertest bash -c 'echo $PATH'
+  # - docker exec -it containertest yarn -v
   # docker-compose
   - docker exec -it containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest docker-compose version
