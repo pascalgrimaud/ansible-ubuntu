@@ -21,9 +21,6 @@ script:
   # zsh
   - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest zsh --version
-  # tilix
-  - docker exec -it containertest ansible-playbook tilix.yml -e ansible_become_pass=jhipster
-  - docker exec -it containertest DISPLAY=:0 tilix --version
   # openjdk8
   - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version
@@ -33,7 +30,7 @@ script:
   - docker exec -it containertest npm -v
   # Yarn
   - docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster
-  - docker exec -it containertest cat ~/.zshrc
+  - docker exec -it containertest bash -c 'cat ~/.zshrc'
   - docker exec -it containertest yarn -v
   # docker-compose
   - docker exec -it containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster

@@ -12,11 +12,13 @@
     dest: ~/.oh-my-zsh
     clone: yes
     update: yes
+    force: true
 
 - name: Copy oh-my-zsh template
   copy:
     src: ~/.oh-my-zsh/templates/zshrc.zsh-template
     dest: ~/.zshrc
+    force: true
 
 - name: Install fonts-powerline
   become: true
