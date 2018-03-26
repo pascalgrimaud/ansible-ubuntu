@@ -18,6 +18,9 @@ script:
   # git
   - docker exec -it containertest ansible-playbook git.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest git version
+  # zsh
+  - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest zsh --version
   # openjdk8
   - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version
@@ -25,9 +28,9 @@ script:
   - docker exec -it containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e version=8.10.0
   - docker exec -it containertest node -v
   - docker exec -it containertest npm -v
-  # zsh
-  - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
-  - docker exec -it containertest zsh --version
+  # Yarn
+  - docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest yarn -v
   # docker-compose
   - docker exec -it containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest docker-compose version
