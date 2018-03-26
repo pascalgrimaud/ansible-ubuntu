@@ -1,0 +1,12 @@
+os:
+  - linux
+services:
+  - docker
+before_install:
+  - docker version
+install:
+  - docker build -t ansible:test .
+  - docker images
+  - docker run --name containertest -d ansible:test
+script:
+  - docker container exec -it containertest ansible --version
