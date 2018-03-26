@@ -22,3 +22,7 @@ script:
   - docker exec -it containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e version=8.10.0
   - docker exec -it containertest node -v
   - docker exec -it containertest npm -v
+  # zsh
+  - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest zsh --version
+

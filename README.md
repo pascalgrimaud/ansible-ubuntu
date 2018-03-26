@@ -41,5 +41,11 @@ Install NodeJS
 ansible-playbook -v node.yml -K -e version=8.10.0
 ```
 
+Install zsh with spaceship
+
+```
+ansible-playbook -v zsh.yml -K
+```
+
 [travis-image]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu.svg?branch=master
 [travis-url]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu

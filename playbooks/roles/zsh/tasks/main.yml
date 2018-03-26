@@ -1,0 +1,33 @@
+---
+- name: Install zsh
+  become: true
+  apt:
+    name: zsh
+    state: present
+  with_items: "zsh"
+
+- name: Install oh-my-zsh
+  git:
+    repo: git://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+    clone: yes
+    update: yes
+
+- name: Copy oh-my-zsh template
+  copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+
+- name: Install fonts-powerline
+  become: true
+  apt:
+    name: fonts-powerline
+    state: present
+  with_items: "fonts-powerline"
+
+- name: Install spaceship-prompt
+  git:
+    repo: https://github.com/denysdovhan/spaceship-prompt.git
+    dest: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+    clone: yes
+    update: yes
