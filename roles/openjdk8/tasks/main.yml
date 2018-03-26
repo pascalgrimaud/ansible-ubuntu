@@ -1,0 +1,7 @@
+---
+- name: Install openjdk-8-jdk
+  become: true
+  apt:
+    name: openjdk-8-jdk
+    state: present
+  with_items: "openjdk-8-jdk"

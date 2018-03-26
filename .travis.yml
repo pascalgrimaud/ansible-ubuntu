@@ -15,3 +15,6 @@ script:
   - docker exec -it containertest vim --version
   - docker exec -it containertest curl --version
   - docker exec -it containertest wget --version
+  # openjdk8
+  - docker exec -it containertest ansible-playbook -v openjdk8.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest java -version
