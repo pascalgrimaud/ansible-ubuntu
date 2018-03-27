@@ -14,8 +14,7 @@
   become: true
   apt:
     name: git
-    state: present
-  with_items: "git"
+    state: latest
 
 - name: Config git user.name={{username}}
   shell: git config --global user.name "{{username}}"

@@ -1,3 +1,4 @@
+---
 - hosts: localhost
   roles:
-    - { role: node, version: '8.10.0' }
+    - { role: node, NODE_VERSION: '8.10.0' }

@@ -1,13 +1,31 @@
 ---
-- name: Install yarn
-  shell: curl -o- -L https://yarnpkg.com/install.sh | bash
+- name: Install apt-transport-https
+  become: true
+  apt:
+    name: apt-transport-https
+    state: latest
 
-- name: Add yarn to zsh
-  shell: |
-    if [[ -a ~/.zshrc ]]; then
-    echo '' >> ~/.zshrc
-    echo '# yarn' >> ~/.zshrc
-    echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> ~/.zshrc
-    fi
-  args:
-    executable: /bin/bash
+- name: Add yarnpkg public key
+  become: true
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+
+- name: Add yarnpkg to sources.list.d
+  become: true
+  apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+    state: present
+    filename: /etc/apt/sources.list.d/yarn.list
+
+- name: Update all packages to the latest version
+  become: true
+  apt:
+    upgrade: dist
+
+- name: Install Yarn
+  become: true
+  apt:
+    name: yarn
+    state: latest
+  with_items: "apt-transport-https"

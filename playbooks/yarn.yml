@@ -1,3 +1,5 @@
 - hosts: localhost
   roles:
-    - yarn
+    - tools
+    - { role: node, NODE_VERSION: '8.10.0' }
+    - { role: yarn, extra_path: "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin" }

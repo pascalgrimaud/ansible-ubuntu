@@ -1,13 +1,13 @@
 ---
-- name: Download NodeJS {{version}}
+- name: Download NodeJS {{NODE_VERSION}}
   get_url:
-    url: http://nodejs.org/dist/v{{version}}/node-v{{version}}-linux-x64.tar.gz
+    url: http://nodejs.org/dist/v{{NODE_VERSION}}/node-v{{NODE_VERSION}}-linux-x64.tar.gz
     dest: /tmp/
 
-- name: Install NodeJS {{version}}
+- name: Install NodeJS {{NODE_VERSION}}
   become: true
   become_user: root
   unarchive:
-    src: /tmp/node-v{{version}}-linux-x64.tar.gz
+    src: /tmp/node-v{{NODE_VERSION}}-linux-x64.tar.gz
     dest: /usr/local/
     extra_opts: "--strip-components=1"

@@ -3,8 +3,7 @@
   become: true
   apt:
     name: zsh
-    state: present
-  with_items: "zsh"
+    state: latest
 
 - name: Install oh-my-zsh
   git:
@@ -24,8 +23,7 @@
   become: true
   apt:
     name: fonts-powerline
-    state: present
-  with_items: "fonts-powerline"
+    state: latest
 
 - name: Install spaceship-prompt
   git:
