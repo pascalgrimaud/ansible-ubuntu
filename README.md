@@ -4,12 +4,23 @@
 
 ## Test with Docker
 
+
+Build the Docker image
+
 ```
 docker build -t ansible:test .
 ```
 
+Start the container with the code inside:
+
 ```
-docker run --rm -it ansible bash
+docker run --rm -it ansible:test bash
+```
+
+Start the container, with volume, so you can change the code directly:
+
+```
+docker run --rm -it -v "$PWD":/home/jhipster/app/ ansible:test bash
 ```
 
 ## Roles
@@ -35,6 +46,14 @@ Install Git and configure with your information
 ansible-playbook -v playbooks/git.yml -K -e 'username="Firstname Lastname"' -e email=yourmail
 ```
 
+### zsh, oh-my-zsh, fonts-powerline and spaceship-prompt
+
+Install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
+
+```
+ansible-playbook -v playbooks/zsh.yml -K
+```
+
 ### OpenJDK 8
 
 Install Java:
@@ -58,12 +77,12 @@ Install a specific version of NodeJS
 ansible-playbook -v playbooks/node.yml -K -e NODE_VERSION=8.10.0
 ```
 
-### zsh, oh-my-zsh, fonts-powerline and spaceship-prompt
+### yarn
 
-Install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
+Install [yarn](https://yarnpkg.com/lang/en/)
 
 ```
-ansible-playbook -v playbooks/zsh.yml -K
+ansible-playbook -v playbooks/yarn.yml -K
 ```
 
 ### tilix

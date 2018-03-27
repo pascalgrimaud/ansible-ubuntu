@@ -7,7 +7,7 @@ before_install:
 install:
   - docker build -q -t ansible:test .
   - docker images
-  - docker run --name containertest -d ansible:test
+  - docker run --name containertest -d -w /home/jhipster/app/playbooks/ ansible:test
 script:
   - docker exec -it containertest ansible --version
   # tools
