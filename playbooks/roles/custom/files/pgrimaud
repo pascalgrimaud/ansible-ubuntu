@@ -1,0 +1,102 @@
+#!/bin/bash
+
+##################################################
+# zsh and spaceship
+##################################################
+
+ZSH_THEME="spaceship"
+
+source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_BATTERY_SHOW=false
+SPACESHIP_PACKAGE_SHOW=false
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_DOCKER_SHOW=false
+
+##################################################
+# tilix
+##################################################
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
+##################################################
+# yarn
+##################################################
+
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"
+
+##################################################
+# alias
+##################################################
+
+alias pack="mvn clean package -DskipTests"
+alias packt="mvn clean package"
+alias packp="mvn clean package -Pprod -DskipTests"
+alias packpt="mvn clean package -Pprod"
+
+alias java1="java -Xmx256m -jar target/*.war"
+alias java2="java -Xmx512m -jar target/*.war"
+alias java3="java -Xmx768m -jar target/*.war"
+alias java4="java -Xmx1024m -jar target/*.war"
+
+alias java1p="java -Xmx256m -jar target/*.war --spring.profiles.active=prod,swagger"
+alias java2p="java -Xmx512m -jar target/*.war --spring.profiles.active=prod,swagger"
+alias java3p="java -Xmx768m -jar target/*.war --spring.profiles.active=prod,swagger"
+alias java4p="java -Xmx1024m -jar target/*.war --spring.profiles.active=prod,swagger"
+
+alias dockerjekyll="docker run --rm --label=jekyll --volume=\$(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll:pages bundle exec jekyll serve"
+alias dockerjekyll2="docker run --rm --label=jekyll --volume=\$(pwd):/site -p 4000:4000 andredumas/github-pages serve --watch"
+
+# maven
+alias mvn1='mvn -Pdev -Drun.jvmArguments="-Xmx256m"'
+
+dps() {
+  docker ps -a
+}
+dpss() {
+  docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+}
+dstop() {
+  docker stop $(docker ps -q)
+}
+drm() {
+  docker rm $(docker ps -aq)
+}
+dstoprm() {
+  dstop
+  drm
+}
+dstats() {
+    docker stats $(docker ps --format={{.Names}})
+}
+alias ds='while true; do TEXT=$(docker stats --no-stream $(docker ps --format={{.Names}})); sleep 0.1; clear; echo "$TEXT"; done'
+
+drminone() {
+    docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
+}
+dvol() {
+    docker volume ls
+}
+dvolrm() {
+    docker volume rm $(docker volume ls -qf dangling=true)
+}
+
+gitorigin() {
+    git fetch origin
+    git rebase origin/master
+}
+gitupstream() {
+    git fetch upstream
+    git rebase upstream/master
+}
+
+mkcd() {
+    mkdir "$1" && cd "$1"
+}
+alias npmlink="npm link generator-jhipster"
+alias yarnlink="yarn link generator-jhipster"
+
+alias dcqlsh="docker run --name=cqlsh --network=host --volume=\$(pwd):/cql:ro --workdir=/cql --rm -it cassandra:2.1.15 cqlsh \$@"
