@@ -114,7 +114,7 @@ ansible-playbook -v playbooks/docker.yml -K
 
 ### Docker Compose
 
-To install [Docker Compose](https://github.com/docker/compose) !
+To install [Docker Compose](https://github.com/docker/compose) :
 
 ```
 ansible-playbook -v playbooks/dockercompose.yml -K

@@ -15,4 +15,3 @@
   apt:
     name: tilix
     state: present
-  with_items: "tilix"

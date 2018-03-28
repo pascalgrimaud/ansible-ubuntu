@@ -28,4 +28,3 @@
   apt:
     name: yarn
     state: latest
-  with_items: "apt-transport-https"
