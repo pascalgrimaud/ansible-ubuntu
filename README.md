@@ -2,8 +2,19 @@
 
 [![Build Status][travis-image]][travis-url]
 
-## Test with Docker
+This project is used to setup my Ubuntu machine :computer:
 
+## Prerequisites
+
+You have to install Ansible:
+
+```
+sudo apt-add-repository -y ppa:ansible/ansible && \
+sudo apt-get update && \
+sudo apt-get install -y ansible
+```
+
+## Test with Docker
 
 Build the Docker image
 
@@ -27,22 +38,29 @@ docker run --rm -it -v "$PWD":/home/jhipster/app/ ansible:test bash
 
 ### Tools: curl, vim, wget
 
+To install curl, vim and wget :
+
 ```
 ansible-playbook -v playbooks/tools.yml -K
 ```
 
 ### Git
 
+To install Git :
+
 ```
 ansible-playbook -v playbooks/git.yml -K
 ```
 
-Install Git and configure with your information
+To install Git and configure with your information :
+
 ```
 ansible-playbook -v playbooks/git.yml -K -e 'username="Firstname Lastname"' -e email=yourmail
 ```
 
-### zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
+### zsh, oh-my-zsh, fonts-powerline, spaceship-prompt
+
+To install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
 
 ```
 ansible-playbook -v playbooks/zsh.yml -K
@@ -50,41 +68,53 @@ ansible-playbook -v playbooks/zsh.yml -K
 
 ### OpenJDK 8
 
+To install OpenJDK 8 :
+
 ```
 ansible-playbook -v playbooks/openjdk8.yml -K
 ```
 
-### [NodeJS](https://nodejs.org/en/)
+### NodeJS
+
+To install [NodeJS](https://nodejs.org/en/) :
 
 ```
 ansible-playbook -v playbooks/node.yml -K
 ```
 
-Install a specific version of NodeJS:
+To install a specific version of NodeJS :
 
 ```
 ansible-playbook -v playbooks/node.yml -K -e NODE_VERSION=8.10.0
 ```
 
-### [Yarn](https://yarnpkg.com/lang/en/)
+### Yarn
+
+To install [Yarn](https://yarnpkg.com/lang/en/) :
 
 ```
 ansible-playbook -v playbooks/yarn.yml -K
 ```
 
-### [tilix](https://github.com/gnunn1/tilix)
+### tilix
+
+To install [tilix](https://github.com/gnunn1/tilix) :
 
 ```
 ansible-playbook -v playbooks/tilix.yml -K
 ```
 
-### [Docker](https://github.com/moby/moby)
+### Docker
+
+To install [Docker](https://github.com/moby/moby) :
 
 ```
 ansible-playbook -v playbooks/docker.yml -K
 ```
 
-### [Docker Compose](https://github.com/docker/compose)
+### Docker Compose
+
+To install [Docker Compose](https://github.com/docker/compose) !
 
 ```
 ansible-playbook -v playbooks/dockercompose.yml -K
