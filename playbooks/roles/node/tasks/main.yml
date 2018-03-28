@@ -6,7 +6,6 @@
 
 - name: Install NodeJS {{NODE_VERSION}}
   become: true
-  become_user: root
   unarchive:
     src: /tmp/node-v{{NODE_VERSION}}-linux-x64.tar.gz
     dest: /usr/local/
