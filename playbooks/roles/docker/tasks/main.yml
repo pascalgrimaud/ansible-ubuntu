@@ -1,0 +1,10 @@
+---
+- name: Download Docker package
+  get_url:
+    url: 'https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/docker-ce_18.03.0~ce-0~ubuntu_amd64.deb'
+    dest: /tmp/
+
+- name: Install Docker
+  become: true
+  apt:
+    deb: /tmp/docker-ce_18.03.0~ce-0~ubuntu_amd64.deb
