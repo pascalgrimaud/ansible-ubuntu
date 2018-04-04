@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  roles:
+    - { role: maven, MAVEN_VERSION: '3.5.2' }
