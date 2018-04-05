@@ -7,11 +7,17 @@
 
 - name: Install oh-my-zsh
   git:
-    repo: git://github.com/robbyrussell/oh-my-zsh.git
-    dest: ~/.oh-my-zsh
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/projects/config/oh-my-zsh
     clone: yes
     update: yes
     force: true
+
+- name: Symlink for oh-my-zsh
+  file:
+    src: ~/projects/config/oh-my-zsh
+    dest: ~/.oh-my-zsh
+    state: link
 
 - name: Copy oh-my-zsh template
   copy:
@@ -28,6 +34,17 @@
 - name: Install spaceship-prompt
   git:
     repo: https://github.com/denysdovhan/spaceship-prompt.git
-    dest: ~/.oh-my-zsh/custom/themes/spaceship-prompt
+    dest: ~/projects/config/spaceship-prompt
     clone: yes
     update: yes
+
+- name: Create folder custom/themes
+  file:
+    path: ~/.oh-my-zsh/custom/themes/
+    state: directory
+
+- name: Symlink for spaceship-prompt
+  file:
+    src: ~/projects/config/spaceship-prompt/spaceship.zsh-theme
+    dest: ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+    state: link
