@@ -12,6 +12,7 @@ SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_PACKAGE_SHOW=false
 SPACESHIP_NODE_SHOW=false
 SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_DIR_TRUNC_REPO=false
 
 ##################################################
 # tilix
@@ -107,3 +108,4 @@ alias npmlink="npm link generator-jhipster"
 alias yarnlink="yarn link generator-jhipster"
 
 alias dcqlsh="docker run --name=cqlsh --network=host --volume=\$(pwd):/cql:ro --workdir=/cql --rm -it cassandra:2.1.15 cqlsh \$@"
+alias jhcd="cd ~/projects/jhipster/generator-jhipster"
