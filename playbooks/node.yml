@@ -1,4 +1,10 @@
 ---
 - hosts: localhost
   roles:
-    - { role: node, NODE_VERSION: '8.10.0' }
+    - node
+  vars_prompt:
+    name: NODE_VERSION
+    prompt: 'Choose your Node version'
+    default: '8.11.1'
+    private: no
+
