@@ -14,6 +14,9 @@ sudo apt-get update && \
 sudo apt-get install -y ansible
 ```
 
+Check your folder directory: `~/.ansible/`
+You must be the owner of this folder, specially if you already used `sudo ansible-playbook`.
+
 ## Test with Docker
 
 Build the Docker image
