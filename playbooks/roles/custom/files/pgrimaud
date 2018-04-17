@@ -1,6 +1,12 @@
 #!/bin/bash
 
 ##################################################
+# zsh-autosuggestions
+##################################################
+
+source "$HOME"/projects/config/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+##################################################
 # zsh and spaceship
 ##################################################
 

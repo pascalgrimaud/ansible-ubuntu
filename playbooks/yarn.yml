@@ -1,5 +1,10 @@
 - hosts: localhost
   roles:
     - tools
-    - { role: node, NODE_VERSION: '8.10.0' }
-    - { role: yarn, extra_path: "$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin" }
+    - node
+    - yarn
+  vars_prompt:
+    name: node_version
+    prompt: 'Choose your Node version'
+    default: '8.11.1'
+    private: no
