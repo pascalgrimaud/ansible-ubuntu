@@ -3,8 +3,7 @@
   roles:
     - node
   vars_prompt:
-    name: NODE_VERSION
+    name: node_version
     prompt: 'Choose your Node version'
     default: '8.11.1'
     private: no
-

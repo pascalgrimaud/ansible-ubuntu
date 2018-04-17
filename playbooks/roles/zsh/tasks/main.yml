@@ -48,3 +48,10 @@
     src: ~/projects/config/spaceship-prompt/spaceship.zsh-theme
     dest: ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
     state: link
+
+- name: Install zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: ~/projects/config/zsh-autosuggestions
+    clone: yes
+    update: yes

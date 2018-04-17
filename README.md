@@ -58,12 +58,12 @@ ansible-playbook -v playbooks/git.yml -K
 To install Git and configure with your information :
 
 ```
-ansible-playbook -v playbooks/git.yml -K -e 'GIT_USERNAME="Firstname Lastname"' -e GIT_EMAIL=yourmail
+ansible-playbook -v playbooks/git.yml -K -e 'git_username="Firstname Lastname"' -e git_email=yourmail
 ```
 
-### zsh, oh-my-zsh, fonts-powerline, spaceship-prompt, zsh-suggestions
+### zsh, oh-my-zsh, fonts-powerline, spaceship-prompt, zsh-autosuggestions
 
-To install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
+To install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline,[spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt) and [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 ```
 ansible-playbook -v playbooks/zsh.yml -K
@@ -88,7 +88,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e NODE_VERSION=8.11.1
+ansible-playbook -v playbooks/node.yml -K -e node_version=8.11.1
 ```
 
 ### Yarn
