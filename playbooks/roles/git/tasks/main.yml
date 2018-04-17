@@ -18,8 +18,12 @@
 
 - name: Config git user.name={{git_username}}
   shell: git config --global user.name "{{git_username}}"
-  when: git_username != ""
+  when:
+    - git_username is defined
+    - git_username != ""
 
 - name: Config git user.email={{git_email}}
   shell: git config --global user.email "{{git_email}}"
-  when: git_email != ""
+  when:
+    - git_email is defined
+    - git_email != ""
