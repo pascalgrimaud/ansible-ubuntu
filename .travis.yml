@@ -29,8 +29,8 @@ script:
   - docker exec -it containertest node -v
   - docker exec -it containertest npm -v
   # Yarn
-  - docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster
-  - docker exec -it containertest yarn -v -e node_version=8.11.1
+  - docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster -e node_version=8.11.1
+  - docker exec -it containertest yarn -v
   # docker
   - docker exec -it containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest docker -v
