@@ -1,0 +1,13 @@
+---
+- name: Create {{github_folder}} folder
+  file:
+    path: '{{github_folder}}'
+    state: directory
+
+- name: Clone {{github_repository}}
+  git:
+    repo: git@github.com:{{github_username}}/{{github_repository}}.git
+    dest: '{{github_folder}}/{{github_repository}}'
+    clone: yes
+    accept_hostkey: yes
+    update: yes

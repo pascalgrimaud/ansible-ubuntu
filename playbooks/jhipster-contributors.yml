@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  roles:
+    - { role: jhipster, github_repository: 'jhipster-registry' }
+  vars_prompt:
+    - name: github_username
+      prompt: 'What is your GitHub username'
+      default: 'pascalgrimaud'
+      private: no
+    - name: github_folder
+      prompt: 'Where do you want to clone the project'
+      default: '~/projects/test/'
+      private: no
