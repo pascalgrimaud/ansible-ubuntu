@@ -16,7 +16,7 @@ script:
   - docker exec -it containertest curl --version
   - docker exec -it containertest wget --version
   # git
-  - docker exec -it containertest ansible-playbook git.yml -e ansible_become_pass=jhipster
+  - docker exec -it containertest ansible-playbook git.yml -e ansible_become_pass=jhipster -e 'git_username="Firstname Lastname"' -e git_email=yourmail@localhost
   - docker exec -it containertest git version
   # zsh
   - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster

@@ -2,3 +2,10 @@
 - hosts: localhost
   roles:
     - git
+  vars_prompt:
+    - name: git_username
+      prompt: 'What is your username'
+      private: no
+    - name: git_email
+      prompt: 'What is your email'
+      private: no

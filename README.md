@@ -14,7 +14,7 @@ sudo apt-get update && \
 sudo apt-get install -y ansible
 ```
 
-Check your folder directory: `~/.ansible/`
+Check your folder: `~/.ansible/`
 You must be the owner of this folder, specially if you already used `sudo ansible-playbook`.
 
 ## Test with Docker
@@ -58,10 +58,10 @@ ansible-playbook -v playbooks/git.yml -K
 To install Git and configure with your information :
 
 ```
-ansible-playbook -v playbooks/git.yml -K -e 'username="Firstname Lastname"' -e email=yourmail
+ansible-playbook -v playbooks/git.yml -K -e 'GIT_USERNAME="Firstname Lastname"' -e GIT_EMAIL=yourmail
 ```
 
-### zsh, oh-my-zsh, fonts-powerline, spaceship-prompt
+### zsh, oh-my-zsh, fonts-powerline, spaceship-prompt, zsh-suggestions
 
 To install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-powerline and [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
 
