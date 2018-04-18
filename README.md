@@ -69,6 +69,12 @@ To install zsh, [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), fonts-po
 ansible-playbook -v playbooks/zsh.yml -K
 ```
 
+Launch this playbook to create a `.custom` file at your home, then customize it:
+
+```
+ansible-playbook -v playbooks/custom.yml
+```
+
 ### OpenJDK 8
 
 To install OpenJDK 8 :
