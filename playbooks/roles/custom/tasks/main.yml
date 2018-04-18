@@ -1,12 +1,12 @@
 ---
-- name: Copy custom alias to .pgrimaud
+- name: Copy custom alias to $HOME/.{{custom_name}}
   copy:
-    src: pgrimaud
-    dest: $HOME/.pgrimaud
+    src: custom
+    dest: $HOME/.{{custom_name}}
 
-- name: Add source .pgrimaud to ~/.zshrc configuration
+- name: Add source $HOME/.{{custom_name}} to ~/.zshrc configuration
   lineinfile:
     path: $HOME/.zshrc
-    regexp: '^source \$HOME\/.pgrimaud'
+    regexp: '^source \$HOME\/.{{custom_name}}'
     insertafter: '^# alias ohmyzsh="mate ~/.oh-my-zsh"'
-    line: 'source $HOME/.pgrimaud'
+    line: 'source $HOME/.{{custom_name}}'

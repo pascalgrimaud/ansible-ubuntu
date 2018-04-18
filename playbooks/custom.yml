@@ -2,3 +2,8 @@
 - hosts: localhost
   roles:
     - custom
+  vars_prompt:
+    name: custom_name
+    prompt: 'Choose your personal file (without dot)'
+    default: 'custom'
+    private: no
