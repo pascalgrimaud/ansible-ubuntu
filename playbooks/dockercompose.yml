@@ -1,3 +1,3 @@
 - hosts: localhost
   roles:
-    - { role: dockercompose, DOCKER_COMPOSE_VERSION: '1.20.1' }
+    - { role: dockercompose, DOCKER_COMPOSE_VERSION: '1.21.0' }
