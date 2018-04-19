@@ -34,6 +34,7 @@ script:
   # docker
   - docker exec -it containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest docker -v
+  - docker exec -it containertest groups jhipster
   # docker-compose
   - docker exec -it containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest docker-compose version
