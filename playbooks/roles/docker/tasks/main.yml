@@ -8,3 +8,11 @@
   become: true
   apt:
     deb: /tmp/docker-ce_18.03.0~ce-0~ubuntu_amd64.deb
+
+- name: Add to Docker group
+  become: true
+  user:
+    name: {{ansible_user}}
+    shell: /bin/bash
+    groups: docker
+    append: yes
