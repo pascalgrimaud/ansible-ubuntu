@@ -12,7 +12,7 @@
 - name: Add to Docker group
   become: true
   user:
-    name: {{ansible_user}}
+    name: '{{ansible_user}}'
     shell: /bin/bash
     groups: docker
     append: yes
