@@ -83,6 +83,14 @@ To install OpenJDK 8 :
 ansible-playbook -v playbooks/openjdk8.yml -K
 ```
 
+### Maven
+
+To install Maven :
+
+```
+ansible-playbook -v playbooks/maven.yml -K
+```
+
 ### NodeJS
 
 To install [NodeJS](https://nodejs.org/en/) :
