@@ -1,4 +1,9 @@
 ---
 - hosts: localhost
   roles:
-    - { role: maven, MAVEN_VERSION: '3.5.2' }
+    - role: maven
+  vars_prompt:
+    name: maven_version
+    prompt: 'Choose your Maven version'
+    default: '3.5.2'
+    private: no

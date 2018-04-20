@@ -1,18 +1,18 @@
 ---
-- name: Download Maven {{MAVEN_VERSION}}
+- name: Download Maven {{maven_version}}
   get_url:
-    url: http://www-eu.apache.org/dist/maven/maven-3/{{MAVEN_VERSION}}/binaries/apache-maven-{{MAVEN_VERSION}}-bin.tar.gz
+    url: http://www-eu.apache.org/dist/maven/maven-3/{{maven_version}}/binaries/apache-maven-{{maven_version}}-bin.tar.gz
     dest: /tmp/
 
-- name: Install Maven {{NODE_VERSION}}
+- name: Install Maven {{maven_version}}
   become: true
   unarchive:
-    src: /tmp/apache-maven-{{MAVEN_VERSION}}-bin.tar.gz
+    src: /tmp/apache-maven-{{maven_version}}-bin.tar.gz
     dest: /opt/
 
 - name: Create symlink for Maven
   become: true
   file:
-    src: /opt/apache-maven-{{MAVEN_VERSION}}
+    src: /opt/apache-maven-{{maven_version}}
     dest: /opt/maven
     state: link
