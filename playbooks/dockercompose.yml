@@ -1,3 +1,8 @@
 - hosts: localhost
   roles:
-    - { role: dockercompose, DOCKER_COMPOSE_VERSION: '1.21.0' }
+    - role: dockercompose
+  vars_prompt:
+    name: docker_compose_version
+    prompt: 'Choose your Docker-Compose version' 
+    default: '1.21.0'
+    private: no
