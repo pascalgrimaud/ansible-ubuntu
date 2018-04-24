@@ -10,9 +10,16 @@
     src: /tmp/apache-maven-{{maven_version}}-bin.tar.gz
     dest: /opt/
 
-- name: Create symlink for Maven
+- name: Create symlink in /opt/ for Maven
   become: true
   file:
     src: /opt/apache-maven-{{maven_version}}
     dest: /opt/maven
+    state: link
+
+- name: Create symlink in /usr/local/bin/ for Maven
+  become: true
+  file:
+    src: /opt/maven/bin/mvn
+    dest: /usr/local/bin/mvn
     state: link
