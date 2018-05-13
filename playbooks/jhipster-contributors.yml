@@ -1,7 +1,12 @@
 ---
 - hosts: localhost
   roles:
-    - { role: jhipster, github_repository: 'jhipster-registry' }
+    - { role: clone-fork, github_repository: 'generator-jhipster', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster-registry', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster-online', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster-oh-my-zsh-plugin', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster-fisherman-plugin', github_upstream: 'jhipster' }
   vars_prompt:
     - name: github_username
       prompt: 'What is your GitHub username'
@@ -9,5 +14,5 @@
       private: no
     - name: github_folder
       prompt: 'Where do you want to clone the project'
-      default: '~/projects/test/'
+      default: '~/projects/jhipster/'
       private: no
