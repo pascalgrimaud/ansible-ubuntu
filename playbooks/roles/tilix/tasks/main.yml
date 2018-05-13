@@ -1,15 +1,4 @@
 ---
-- name: Add repository ppa:webupd8team/terminix
-  become: true
-  apt_repository:
-    repo: 'ppa:webupd8team/terminix'
-    state: present
-
-- name: Update all packages to the latest version
-  become: true
-  apt:
-    upgrade: dist
-
 - name: Install tilix
   become: true
   apt:
