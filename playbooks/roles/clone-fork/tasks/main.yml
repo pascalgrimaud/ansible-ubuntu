@@ -1,0 +1,28 @@
+---
+- name: Create {{github_folder}} folder
+  file:
+    path: '{{github_folder}}'
+    state: directory
+
+- name: Clone git@github.com:{{github_username}}/{{github_repository}}.git
+  git:
+    repo: git@github.com:{{github_username}}/{{github_repository}}.git
+    dest: '{{github_folder}}/{{github_repository}}'
+    clone: yes
+    accept_hostkey: yes
+    update: yes
+
+- name: Set upstream to https://github.com/{{github_upstream}}/{{github_repository}}
+  shell: cd {{github_folder}}/{{github_repository}} && git remote add upstream https://github.com/{{github_upstream}}/{{github_repository}}
+  ignore_errors: yes
+
+- name: Config for checkouting pull requests locally
+  lineinfile:
+    path: '{{github_folder}}/{{github_repository}}/.git/config'
+    regexp: '^        fetch = \+refs/pull/\*/head:refs/remotes/upstream/pr/\*'
+    insertafter: '^        fetch = +refs/heads/*:refs/remotes/upstream/*'
+    line: '        fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*'
+
+- name: Fetch upstream and rebase
+  shell: cd {{github_folder}}/{{github_repository}} && git checkout master && git fetch upstream && git rebase upstream/master
+  ignore_errors: yes
