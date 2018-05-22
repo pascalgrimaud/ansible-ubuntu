@@ -7,6 +7,8 @@
     - { role: clone-fork, github_repository: 'jhipster-online', github_upstream: 'jhipster' }
     - { role: clone-fork, github_repository: 'jhipster-oh-my-zsh-plugin', github_upstream: 'jhipster' }
     - { role: clone-fork, github_repository: 'jhipster-fisherman-plugin', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'chocolatey-package', github_upstream: 'jhipster' }
+    - { role: clone-fork, github_repository: 'jhipster-devbox', github_upstream: 'jhipster' }
   vars_prompt:
     - name: github_username
       prompt: 'What is your GitHub username'
