@@ -1,10 +1,10 @@
+---
+- name: Install Tools
+  include: tools.yml
+
+- name: Install Node
+  include: node.yml
+
 - hosts: localhost
   roles:
-    - tools
-    - node
     - yarn
-  vars_prompt:
-    name: node_version
-    prompt: 'Choose your Node version'
-    default: '8.11.2'
-    private: no

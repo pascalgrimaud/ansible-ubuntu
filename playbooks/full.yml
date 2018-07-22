@@ -1,0 +1,38 @@
+---
+- name: Full install
+  hosts: localhost
+  tasks:
+    - include_tasks: tools.yml
+    - include_tasks: git.yml
+  vars_prompt:
+    - name: git_username
+      prompt: 'What is your username'
+      private: no
+    - name: git_email
+      prompt: 'What is your email'
+      private: no
+
+
+# - name: Install zsh
+#   include: zsh.yml
+
+# - name: Install custom zsh
+#   include: custom.yml
+
+# - name: Install Java
+#   include: openjdk8.yml
+
+# - name: Install Maven
+#   include: maven.yml
+
+# - name: Install Yarn
+#   include: yarn.yml
+
+# - name: Install tilix
+#   include: tilix.yml
+
+# - name: Install Docker
+#   include: docker.yml
+
+# - name: Install Docker Compose
+#   include: dockercompose.yml
