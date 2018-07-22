@@ -94,7 +94,7 @@ ansible-playbook -v playbooks/maven.yml -K
 To install a specific version of Maven :
 
 ```
-ansible-playbook -v playbooks/maven.yml -K -e maven_version=3.5.3
+ansible-playbook -v playbooks/maven.yml -K -e maven_version=3.5.4
 ```
 
 ### NodeJS
@@ -108,7 +108,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=8.11.2
+ansible-playbook -v playbooks/node.yml -K -e node_version=8.11.3
 ```
 
 ### Yarn
