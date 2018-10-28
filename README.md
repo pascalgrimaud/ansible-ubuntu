@@ -108,7 +108,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=8.11.3
+ansible-playbook -v playbooks/node.yml -K -e node_version=8.12.0
 ```
 
 ### Yarn

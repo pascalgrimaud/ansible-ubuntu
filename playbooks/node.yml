@@ -5,5 +5,5 @@
   vars_prompt:
     name: node_version
     prompt: 'Choose your Node version'
-    default: '8.11.3'
+    default: '8.12.0'
     private: no
