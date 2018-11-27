@@ -10,3 +10,6 @@
     src: /tmp/node-v{{node_version}}-linux-x64.tar.gz
     dest: /usr/local/
     extra_opts: "--strip-components=1"
+
+- name: Configure npm global location
+  shell: npm config set prefix $HOME\/.npm-global/
