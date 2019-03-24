@@ -6,10 +6,10 @@
     # https://github.com/kubernetes/kubernetes/tags
     - name: kubernetes_version
       prompt: 'Choose your Kubernetes version'
-      default: '1.11.4'
+      default: '1.13.4'
       private: no
     # https://github.com/kubernetes/minikube/tags
     - name: minikube_version
       prompt: 'Choose your Minikube version'
-      default: '0.30.0'
+      default: '0.34.1'
       private: no
