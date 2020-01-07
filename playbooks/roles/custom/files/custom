@@ -1,6 +1,24 @@
 #!/bin/bash
 
 ##################################################
+# Spotify
+##################################################
+
+alias spotify="/usr/share/spotify/spotify --force-device-scale-factor=2"
+
+##################################################
+# Gatling
+##################################################
+
+export GATLING_HOME=/home/pgrimaud/app/gatling
+
+##################################################
+# OpenShift
+##################################################
+
+export PATH="$HOME/app/openshift:$PATH"
+
+##################################################
 # zsh-autosuggestions
 ##################################################
 
@@ -46,21 +64,22 @@ export PATH=${M2_HOME}/bin:${PATH}
 ##################################################
 # alias
 ##################################################
+alias cl="clear"
 
 alias pack="mvn clean package -DskipTests"
 alias packt="mvn clean package"
 alias packp="mvn clean package -Pprod -DskipTests"
 alias packpt="mvn clean package -Pprod"
 
-alias java1="java -Xmx256m -jar target/*.war"
-alias java2="java -Xmx512m -jar target/*.war"
-alias java3="java -Xmx768m -jar target/*.war"
-alias java4="java -Xmx1024m -jar target/*.war"
+alias java1="java -Xmx256m -jar target/*.jar"
+alias java2="java -Xmx512m -jar target/*.jar"
+alias java3="java -Xmx768m -jar target/*.jar"
+alias java4="java -Xmx1024m -jar target/*.jar"
 
-alias java1p="java -Xmx256m -jar target/*.war --spring.profiles.active=prod,swagger"
-alias java2p="java -Xmx512m -jar target/*.war --spring.profiles.active=prod,swagger"
-alias java3p="java -Xmx768m -jar target/*.war --spring.profiles.active=prod,swagger"
-alias java4p="java -Xmx1024m -jar target/*.war --spring.profiles.active=prod,swagger"
+alias java1p="java -Xmx256m -jar target/*.jar --spring.profiles.active=prod,swagger"
+alias java2p="java -Xmx512m -jar target/*.jar --spring.profiles.active=prod,swagger"
+alias java3p="java -Xmx768m -jar target/*.jar --spring.profiles.active=prod,swagger"
+alias java4p="java -Xmx1024m -jar target/*.jar --spring.profiles.active=prod,swagger"
 
 alias dockerjekyll="docker run --rm --label=jekyll --volume=\$(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll:pages bundle exec jekyll serve"
 alias dockerjekyll2="docker run --rm --label=jekyll --volume=\$(pwd):/site -p 4000:4000 andredumas/github-pages serve --watch"
