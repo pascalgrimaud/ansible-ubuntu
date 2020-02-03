@@ -1,0 +1,23 @@
+---
+- name: Update all packages to the latest version
+  become: true
+  apt:
+    upgrade: dist
+
+- name: Add repository ppa:git-core/ppa
+  become: true
+  apt_repository:
+    repo: 'ppa:openjdk-r/ppa'
+    state: present
+
+- name: Install openjdk-11-jdk
+  become: true
+  apt:
+    name: openjdk-11-jdk
+    state: latest
+
+- name: update-java-alternatives
+  become: true
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-11-openjdk-amd64/bin/java

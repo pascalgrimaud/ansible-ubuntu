@@ -21,9 +21,10 @@ script:
   # zsh
   - docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest zsh --version
-  # openjdk8
-  - docker exec -it containertest ansible-playbook openjdk8.yml -e ansible_become_pass=jhipster
+  # openjdk11
+  - docker exec -it containertest ansible-playbook openjdk11.yml -e ansible_become_pass=jhipster
   - docker exec -it containertest java -version
+  - docker exec -it containertest javac -version
   # Maven
   - docker exec -it containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.6.3
   - docker exec -it containertest mvn -version
