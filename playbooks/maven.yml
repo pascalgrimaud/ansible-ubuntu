@@ -5,5 +5,5 @@
   vars_prompt:
     name: maven_version
     prompt: 'Choose your Maven version'
-    default: '3.6.0'
+    default: '3.6.3'
     private: no
