@@ -76,6 +76,11 @@ alias java2="java -Xmx512m -jar target/*.jar"
 alias java3="java -Xmx768m -jar target/*.jar"
 alias java4="java -Xmx1024m -jar target/*.jar"
 
+alias java1d="java -Xmx256m -jar target/*.jar --spring.profiles.active=dev,swagger"
+alias java2d="java -Xmx512m -jar target/*.jar --spring.profiles.active=dev,swagger"
+alias java3d="java -Xmx768m -jar target/*.jar --spring.profiles.active=dev,swagger"
+alias java4d="java -Xmx1024m -jar target/*.jar --spring.profiles.active=dev,swagger"
+
 alias java1p="java -Xmx256m -jar target/*.jar --spring.profiles.active=prod,swagger"
 alias java2p="java -Xmx512m -jar target/*.jar --spring.profiles.active=prod,swagger"
 alias java3p="java -Xmx768m -jar target/*.jar --spring.profiles.active=prod,swagger"
