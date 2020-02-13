@@ -132,6 +132,11 @@ gitupstream() {
     git rebase upstream/master
 }
 
+gac() {
+  git add .
+  git commit -m "$1"
+}
+
 mkcd() {
     mkdir "$1" && cd "$1"
 }
