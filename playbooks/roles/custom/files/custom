@@ -145,3 +145,10 @@ alias yarnlink="yarn link generator-jhipster"
 
 alias dcqlsh="docker run --name=cqlsh --network=host --volume=\$(pwd):/cql:ro --workdir=/cql --rm -it cassandra:2.1.15 cqlsh \$@"
 alias jhcd="cd ~/projects/jhipster/generator-jhipster"
+
+gcbsave() {
+  current_branch=$(git branch --show-current)
+  save_branch="save/$current_branch/$(date +'%Y%m%d_%H%M%S')"
+  git branch $save_branch
+  echo "*** save branch: $save_branch"
+}
