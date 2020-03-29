@@ -1,6 +1,6 @@
 # ansible-ubuntu
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][github-actions-image]][github-actions-url]
 
 This project is used to setup my Ubuntu machine :computer:
 
@@ -143,5 +143,13 @@ To install [Docker Compose](https://github.com/docker/compose) :
 ansible-playbook -v playbooks/dockercompose.yml -K
 ```
 
-[travis-image]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu.svg?branch=master
-[travis-url]: https://travis-ci.org/pascalgrimaud/ansible-ubuntu
+### Fusuma for gesture
+
+To install [fusuma](https://github.com/iberianpig/fusuma) :
+
+```
+ansible-playbook -v playbooks/fusuma.yml -K
+```
+
+[github-actions-image]: https://github.com/pascalgrimaud/ansible-ubuntu/workflows/Build/badge.svg
+[github-actions-url]: https://github.com/pascalgrimaud/ansible-ubuntu/actions?query=workflow%3ABuild
