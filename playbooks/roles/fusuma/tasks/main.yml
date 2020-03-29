@@ -32,4 +32,5 @@
     dest: ~/.config/fusuma/desktop_switcher.sh
     mode: a+x
 - name: Information
-  echo: Add fusuma to startup application
+  debug:
+    msg: "*** Add fusuma to startup application"
