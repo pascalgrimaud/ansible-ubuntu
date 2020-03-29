@@ -16,3 +16,9 @@
   apt:
     name: wget
     state: latest
+
+- name: Install gnome-tweak-tool
+  become: true
+  apt:
+    name: gnome-tweak-tool
+    state: latest

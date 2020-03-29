@@ -21,7 +21,6 @@ jobs:
         docker exec -t containertest vim --version
         docker exec -t containertest curl --version
         docker exec -t containertest wget --version
-
     - name: git
       run: |
         docker exec -t containertest ansible-playbook git.yml -e ansible_become_pass=jhipster -e 'git_username="Firstname Lastname"' -e git_email=yourmail@localhost
