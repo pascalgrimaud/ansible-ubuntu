@@ -1,4 +1,9 @@
 ---
+- name: Install ruby
+  become: true
+  apt:
+    name: ruby-full
+    state: present
 - name: Install wmctrl
   become: true
   apt:
