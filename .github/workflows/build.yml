@@ -1,0 +1,60 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check docker version
+      run: docker version
+    - name: Build Docker image
+      run: |
+        docker build -q -t ansible:test .
+        docker images
+    - name: Start Docker container
+      run: docker run --name containertest -d -w /home/jhipster/app/playbooks/ ansible:test
+
+    - name: Display ansible version
+      run: docker exec -it containertest ansible --version
+    - name: tools
+      run: |
+        docker exec -it containertest ansible-playbook tools.yml -e ansible_become_pass=jhipster
+        docker exec -it containertest vim --version
+        docker exec -it containertest curl --version
+        docker exec -it containertest wget --version
+
+    - name: git
+      run: |
+        docker exec -it containertest ansible-playbook git.yml -e ansible_become_pass=jhipster -e 'git_username="Firstname Lastname"' -e git_email=yourmail@localhost
+        docker exec -it containertest git version
+    - name: zsh
+      run: |
+        docker exec -it containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
+        docker exec -it containertest zsh --version
+    - name: openjdk11
+      run: |
+        docker exec -it containertest ansible-playbook openjdk11.yml -e ansible_become_pass=jhipster
+        docker exec -it containertest java -version
+        docker exec -it containertest javac -version
+    - name: Maven
+      run: |
+        docker exec -it containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.6.3
+        docker exec -it containertest mvn -version
+    - name: NodeJS
+      run: |
+        docker exec -it containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=12.16.1
+        docker exec -it containertest node -v
+        docker exec -it containertest npm -v
+    - name: Yarn
+      run: |
+        docker exec -it containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster -e node_version=12.16.1
+        docker exec -it containertest yarn -v
+    - name: docker
+      run: |
+        docker exec -it containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster
+        docker exec -it containertest docker -v
+        docker exec -it containertest groups jhipster
+    - name: docker-compose
+      run: |
+        docker exec -it containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=1.21.2
+        docker exec -it containertest docker-compose version
