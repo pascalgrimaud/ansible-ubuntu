@@ -13,9 +13,8 @@ jobs:
         docker images
     - name: Start Docker container
       run: docker run --name containertest -d -w /home/jhipster/app/playbooks/ ansible:test
-
-    - name: Display ansible version
-      run: docker exec -it containertest ansible --version
+    # - name: Display ansible version
+    #   run: docker exec -it containertest ansible --version
     - name: tools
       run: |
         docker exec -it containertest ansible-playbook tools.yml -e ansible_become_pass=jhipster
