@@ -1,0 +1,35 @@
+---
+- name: Install wmctrl
+  become: true
+  apt:
+    name: wmctrl
+    state: present
+- name: Install xdotool
+  become: true
+  apt:
+    name: xdotool
+    state: present
+- name: Install fusuma
+  become: true
+  gem:
+    name: fusuma
+    state: present
+
+- name: Create folder ~/.config/fusuma/
+  file:
+    path: ~/.config/fusuma/
+    state: directory
+- name: Copy config for fusuma into ~/.config/fusuma
+  copy:
+    src: config.yml
+    dest: ~/.config/fusuma/
+- name: Copy desktop_switcher.sh into ~/.config/fusuma
+  copy:
+    src: desktop_switcher.sh
+    dest: ~/.config/fusuma/
+- name: Changing perm of "desktop_switcher.sh", adding "+x"
+  file:
+    dest: ~/.config/fusuma/desktop_switcher.sh
+    mode: a+x
+- name: Information
+  echo: Add fusuma to startup application

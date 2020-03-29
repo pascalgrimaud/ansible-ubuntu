@@ -1,0 +1,32 @@
+swipe:
+  3: 
+    left: 
+      command: 'xdotool key ctrl+Page_Up'
+    right: 
+      command: 'xdotool key ctrl+Page_Down'
+    up: 
+      command: 'sh /home/pgrimaud/.config/fusuma/desktop_switcher.sh -1'
+    down: 
+      command: 'sh /home/pgrimaud/.config/fusuma/desktop_switcher.sh 1'
+  4:
+    left: 
+      command: 'xdotool key ctrl+alt+Down'
+    right: 
+      command: 'xdotool key ctrl+alt+Up'
+    up: 
+      command: 'xdotool key ctrl+alt+Down'
+    down: 
+      command: 'xdotool key ctrl+alt+Up'
+pinch:
+  in:
+    command: 'xdotool key ctrl+plus'
+  out:
+     command: 'xdotool key ctrl+minus'
+
+threshold:
+  swipe: 0.5
+  pinch: 0.5
+
+interval:
+  swipe: 0.5
+  pinch: 0.5
