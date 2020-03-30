@@ -21,9 +21,12 @@
     state: present
 - name: Install fusuma
   become: true
-  gem:
-    name: fusuma
-    state: present
+  shell: sudo gem install fusuma
+# - name: Install fusuma
+#   become: true
+#   gem:
+#     name: fusuma
+#     state: present
 
 - name: Create folder ~/.config/fusuma/
   file:
