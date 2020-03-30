@@ -4,6 +4,11 @@
   apt:
     name: ruby-full
     state: present
+- name: Install libinput-tools
+  become: true
+  apt:
+    name: libinput-tools
+    state: present
 - name: Install wmctrl
   become: true
   apt:
