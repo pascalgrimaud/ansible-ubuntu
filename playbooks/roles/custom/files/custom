@@ -66,10 +66,10 @@ export PATH=${M2_HOME}/bin:${PATH}
 ##################################################
 alias cl="clear"
 
-alias pack="mvn clean package -DskipTests"
-alias packt="mvn clean package"
-alias packp="mvn clean package -Pprod -DskipTests"
-alias packpt="mvn clean package -Pprod"
+alias pack="mvn clean verify -DskipTests"
+alias packt="mvn clean verify"
+alias packp="mvn clean verify -Pprod -DskipTests"
+alias packpt="mvn clean verify -Pprod"
 
 alias java1="java -Xmx256m -jar target/*.jar"
 alias java2="java -Xmx512m -jar target/*.jar"
@@ -152,3 +152,5 @@ gsave() {
   git branch $save_branch
   echo "*** save branch: $save_branch"
 }
+
+alias jhcc="java -Xmx256m -jar target/*.jar --spring.profiles.active=prod,swagger,consul"
