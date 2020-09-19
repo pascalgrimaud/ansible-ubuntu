@@ -54,7 +54,7 @@ jobs:
         docker exec -t containertest groups jhipster
     - name: docker-compose
       run: |
-        docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=1.21.2
+        docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=1.27.3
         docker exec -t containertest docker-compose version
     - name: fusuma
       run: |
