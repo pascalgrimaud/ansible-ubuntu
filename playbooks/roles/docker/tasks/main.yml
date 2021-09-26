@@ -31,5 +31,5 @@
   user:
     name: '{{ansible_user}}'
     shell: /bin/bash
-    groups: docker
+    groups: 'docker'
     append: yes
