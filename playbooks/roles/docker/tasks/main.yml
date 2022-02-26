@@ -1,16 +1,16 @@
 ---
 - name: Download container.io
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/containerd.io_1.4.9-1_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/containerd.io_1.4.9-1_amd64.deb'
     dest: /tmp/
     
 - name: Download docker-ce-cli
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_20.10.8~3-0~ubuntu-bionic_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb'
     dest: /tmp/
 - name: Download docker-ce
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.8~3-0~ubuntu-bionic_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb'
     dest: /tmp/
 
 - name: Install container.io
@@ -20,11 +20,11 @@
 - name: Install docker-ce-cli
   become: true
   apt:
-    deb: /tmp/docker-ce-cli_20.10.8~3-0~ubuntu-bionic_amd64.deb
+    deb: /tmp/docker-ce-cli_20.10.9~3-0~ubuntu-focal_amd64.deb
 - name: Install docker-ce
   become: true
   apt:
-    deb: /tmp/docker-ce_20.10.8~3-0~ubuntu-bionic_amd64.deb
+    deb: /tmp/docker-ce_20.10.9~3-0~ubuntu-focal_amd64.deb
 
 - name: Add to Docker group
   become: true
