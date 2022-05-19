@@ -41,7 +41,7 @@ docker run --rm -it -v "$PWD":/home/jhipster/app/ ansible:test bash
 
 ### Tools: curl, vim, wget
 
-To install curl, vim and wget :
+To install curl, vim, wget and gnome-tweaks :
 
 ```
 ansible-playbook -v playbooks/tools.yml -K
@@ -72,15 +72,23 @@ ansible-playbook -v playbooks/zsh.yml -K
 Launch this playbook to create a `.custom` file at your home, then customize it:
 
 ```
-ansible-playbook -v playbooks/custom.yml
+ansible-playbook -v playbooks/custom.yml -u $USER
 ```
 
-### OpenJDK 8
+### OpenJDK 11
 
-To install OpenJDK 8 :
+To install OpenJDK 11 :
 
 ```
-ansible-playbook -v playbooks/openjdk8.yml -K
+ansible-playbook -v playbooks/openjdk11.yml -K
+```
+
+### OpenJDK 17
+
+To install OpenJDK 17 :
+
+```
+ansible-playbook -v playbooks/openjdk17.yml -K
 ```
 
 ### Maven
@@ -108,15 +116,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=14.17.6
-```
-
-### Yarn
-
-To install [Yarn](https://yarnpkg.com/lang/en/) :
-
-```
-ansible-playbook -v playbooks/yarn.yml -K
+ansible-playbook -v playbooks/node.yml -K -e node_version=16.15.0
 ```
 
 ### tilix
@@ -134,7 +134,7 @@ Don't forget to change default cmd to `zsh`
 To install [Docker](https://github.com/moby/moby) :
 
 ```
-ansible-playbook -v playbooks/docker.yml -K
+ansible-playbook -v playbooks/docker.yml -K -u $USER
 ```
 
 ### Docker Compose

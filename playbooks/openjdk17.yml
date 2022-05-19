@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - openjdk8
+    - openjdk17

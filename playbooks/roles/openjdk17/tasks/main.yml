@@ -4,14 +4,14 @@
   apt:
     upgrade: dist
 
-- name: Install openjdk-11-jdk
+- name: Install openjdk-17-jdk
   become: true
   apt:
-    name: openjdk-11-jdk
+    name: openjdk-17-jdk
     state: latest
 
 - name: update-java-alternatives
   become: true
   alternatives:
     name: java
-    path: /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+    path: /usr/lib/jvm/java-17-openjdk-amd64/bin/java

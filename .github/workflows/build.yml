@@ -29,9 +29,9 @@ jobs:
       run: |
         docker exec -t containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
         docker exec -t containertest zsh --version
-    - name: openjdk11
+    - name: openjdk17
       run: |
-        docker exec -t containertest ansible-playbook openjdk11.yml -e ansible_become_pass=jhipster
+        docker exec -t containertest ansible-playbook openjdk17.yml -e ansible_become_pass=jhipster
         docker exec -t containertest java -version
         docker exec -t containertest javac -version
     - name: Maven
@@ -40,21 +40,17 @@ jobs:
         docker exec -t containertest mvn -version
     - name: NodeJS
       run: |
-        docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=14.17.6
+        docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=16.15.0
         docker exec -t containertest node -v
         docker exec -t containertest npm -v
-    - name: Yarn
-      run: |
-        docker exec -t containertest ansible-playbook yarn.yml -e ansible_become_pass=jhipster -e node_version=14.17.6
-        docker exec -t containertest yarn -v
     - name: docker
       run: |
-        docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster
+        docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster -u jhipster
         docker exec -t containertest docker -v
         docker exec -t containertest groups jhipster
     - name: docker-compose
       run: |
-        docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=1.27.3
+        docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=2.5.1
         docker exec -t containertest docker-compose version
     - name: fusuma
       run: |
