@@ -2,7 +2,7 @@
 - name: Install docker-compose
   become: true
   become_user: root
-  shell: curl -L https://github.com/docker/compose/releases/download/{{docker_compose_version}}/docker-compose-"$(uname -s)"-"$(uname -m)" > /tmp/docker-compose
+  shell: curl -L https://github.com/docker/compose/releases/download/v{{docker_compose_version}}/docker-compose-"$(echo "$(uname -s)" | awk '{print tolower($0)}')"-"$(uname -m)" > /tmp/docker-compose
 
 - name: Copy docker-compose to /usr/local/bin
   become: true
