@@ -16,7 +16,9 @@ RUN \
     /home/jhipster/.cache/ \
     /var/lib/apt/lists/* \
     /tmp/* \
-    /var/tmp/*
+    /var/tmp/* && \
+  # update
+  apt update
 COPY . /home/jhipster/app
 RUN chown -R jhipster:jhipster /home/jhipster/
 WORKDIR /home/jhipster/app/
