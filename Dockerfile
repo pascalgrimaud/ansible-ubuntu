@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:jammy
 RUN \
   # configure the "jhipster" user
   groupadd jhipster && \
