@@ -137,15 +137,5 @@ To install [Docker Compose](https://github.com/docker/compose) :
 ansible-playbook -v playbooks/dockercompose.yml -K
 ```
 
-### Fusuma for gesture
-
-To install [fusuma](https://github.com/iberianpig/fusuma) :
-
-```
-ansible-playbook -v playbooks/fusuma.yml -K
-```
-
-Don't forget to add fusuma to startup application.
-
 [github-actions-image]: https://github.com/pascalgrimaud/ansible-ubuntu/workflows/Build/badge.svg
 [github-actions-url]: https://github.com/pascalgrimaud/ansible-ubuntu/actions?query=workflow%3ABuild
