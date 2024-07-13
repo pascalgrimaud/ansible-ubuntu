@@ -75,14 +75,6 @@ Launch this playbook to create a `.custom` file at your home, then customize it:
 ansible-playbook -v playbooks/custom.yml -u $USER
 ```
 
-### OpenJDK 11
-
-To install OpenJDK 11 :
-
-```
-ansible-playbook -v playbooks/openjdk11.yml -K
-```
-
 ### OpenJDK 17
 
 To install OpenJDK 17 :
