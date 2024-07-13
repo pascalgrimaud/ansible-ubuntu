@@ -1,0 +1,24 @@
+{
+  "actions": [
+    {
+      "module": "init",
+      "date": "2024-07-13T09:01:15.575469337Z",
+      "properties": {
+        "projectName": "ansible-ubuntu",
+        "baseName": "ansibleubuntu",
+        "endOfLine": "lf",
+        "indentSize": 2
+      }
+    },
+    {
+      "module": "prettier",
+      "date": "2024-07-13T09:01:15.591509723Z",
+      "properties": {
+        "projectName": "ansible-ubuntu",
+        "baseName": "ansibleubuntu",
+        "endOfLine": "lf",
+        "indentSize": 2
+      }
+    }
+  ]
+}
