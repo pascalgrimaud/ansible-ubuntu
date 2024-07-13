@@ -2,3 +2,12 @@
 - hosts: localhost
   roles:
     - docker
+  vars_prompt:
+    - name: container_version
+      prompt: 'Choose your container.io version'
+      default: '1.7.18-1'
+      private: no
+    - name: docker_version
+      prompt: 'Choose your Docker version'
+      default: '27.0.3-1'
+      private: no

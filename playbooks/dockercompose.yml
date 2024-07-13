@@ -4,5 +4,5 @@
   vars_prompt:
     name: docker_compose_version
     prompt: 'Choose your Docker-Compose version'
-    default: '2.5.1'
+    default: '2.28.1'
     private: no

@@ -78,10 +78,11 @@ jobs:
           docker exec -t containertest npm -v
       - name: docker
         run: |
-          docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster -u jhipster
+          docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster -u jhipster \
+            -e container_version=1.7.18-1 -e docker_version=27.0.3-1
           docker exec -t containertest docker -v
           docker exec -t containertest groups jhipster
       - name: docker-compose
         run: |
-          docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=2.5.1
+          docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=2.28.1
           docker exec -t containertest docker-compose version
