@@ -1,0 +1,17 @@
+---
+- name: Update all packages to the latest version
+  become: true
+  apt:
+    upgrade: dist
+
+- name: Install openjdk-21-jdk
+  become: true
+  apt:
+    name: openjdk-21-jdk
+    state: latest
+
+- name: update-java-alternatives
+  become: true
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-21-openjdk-amd64/bin/java

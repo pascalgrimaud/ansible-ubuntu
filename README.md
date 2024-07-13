@@ -83,6 +83,14 @@ To install OpenJDK 17 :
 ansible-playbook -v playbooks/openjdk17.yml -K
 ```
 
+### OpenJDK 21
+
+To install OpenJDK 21 :
+
+```
+ansible-playbook -v playbooks/openjdk21.yml -K
+```
+
 ### Maven
 
 To install Maven :

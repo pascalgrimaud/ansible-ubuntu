@@ -29,9 +29,9 @@ jobs:
       run: |
         docker exec -t containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
         docker exec -t containertest zsh --version
-    - name: openjdk17
+    - name: openjdk21
       run: |
-        docker exec -t containertest ansible-playbook openjdk17.yml -e ansible_become_pass=jhipster
+        docker exec -t containertest ansible-playbook openjdk21.yml -e ansible_become_pass=jhipster
         docker exec -t containertest java -version
         docker exec -t containertest javac -version
     - name: Maven
