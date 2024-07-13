@@ -1,54 +1,87 @@
 name: Build
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Check docker version
-      run: docker version
-    - name: Build Docker image
-      run: |
-        docker build -q -t ansible:test .
-        docker images
-    - name: Start Docker container
-      run: docker run --name containertest -d -w /home/jhipster/app/playbooks/ ansible:test
-    - name: Display ansible version
-      run: docker exec -t containertest ansible --version
-    - name: tools
-      run: |
-        docker exec -t containertest ansible-playbook tools.yml -e ansible_become_pass=jhipster
-        docker exec -t containertest vim --version
-        docker exec -t containertest curl --version
-        docker exec -t containertest wget --version
-    - name: git
-      run: |
-        docker exec -t containertest ansible-playbook git.yml -e ansible_become_pass=jhipster -e 'git_username="Firstname Lastname"' -e git_email=yourmail@localhost
-        docker exec -t containertest git version
-    - name: zsh
-      run: |
-        docker exec -t containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
-        docker exec -t containertest zsh --version
-    - name: openjdk21
-      run: |
-        docker exec -t containertest ansible-playbook openjdk21.yml -e ansible_become_pass=jhipster
-        docker exec -t containertest java -version
-        docker exec -t containertest javac -version
-    - name: Maven
-      run: |
-        docker exec -t containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.9.6
-        docker exec -t containertest mvn -version
-    - name: NodeJS
-      run: |
-        docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=20.15.1
-        docker exec -t containertest node -v
-        docker exec -t containertest npm -v
-    - name: docker
-      run: |
-        docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster -u jhipster
-        docker exec -t containertest docker -v
-        docker exec -t containertest groups jhipster
-    - name: docker-compose
-      run: |
-        docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=2.5.1
-        docker exec -t containertest docker-compose version
+      #--------------------------------------------------
+      # Checkout and install tools
+      #--------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Setup: Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+      - name: 'Setup: update NPM'
+        shell: bash
+        run: npm install -g npm
+      - name: 'Setup: check tools'
+        shell: bash
+        run: |
+          node -v
+          npm -v
+          docker version
+      #--------------------------------------------------
+      # Test formatting with prettier
+      #--------------------------------------------------
+      - name: 'Init: install Node.js packages'
+        run: npm ci
+      - name: Test formatting with prettier
+        run: npm run prettier:check
+      #--------------------------------------------------
+      # Test ansible roles in Docker container
+      #--------------------------------------------------
+      - name: Build Docker image
+        run: |
+          docker build -q -t ansible:test .
+          docker images
+      - name: Start Docker container
+        run: docker run --name containertest -d -w /home/jhipster/app/playbooks/ ansible:test
+      - name: Display ansible version
+        run: docker exec -t containertest ansible --version
+      - name: tools
+        run: |
+          docker exec -t containertest ansible-playbook tools.yml -e ansible_become_pass=jhipster
+          docker exec -t containertest vim --version
+          docker exec -t containertest curl --version
+          docker exec -t containertest wget --version
+      - name: git
+        run: |
+          docker exec -t containertest ansible-playbook git.yml -e ansible_become_pass=jhipster -e 'git_username="Firstname Lastname"' -e git_email=yourmail@localhost
+          docker exec -t containertest git version
+      - name: zsh
+        run: |
+          docker exec -t containertest ansible-playbook zsh.yml -e ansible_become_pass=jhipster
+          docker exec -t containertest zsh --version
+      - name: openjdk21
+        run: |
+          docker exec -t containertest ansible-playbook openjdk21.yml -e ansible_become_pass=jhipster
+          docker exec -t containertest java -version
+          docker exec -t containertest javac -version
+      - name: Maven
+        run: |
+          docker exec -t containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.9.6
+          docker exec -t containertest mvn -version
+      - name: NodeJS
+        run: |
+          docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=20.15.1
+          docker exec -t containertest node -v
+          docker exec -t containertest npm -v
+      - name: docker
+        run: |
+          docker exec -t containertest ansible-playbook docker.yml -e ansible_become_pass=jhipster -u jhipster
+          docker exec -t containertest docker -v
+          docker exec -t containertest groups jhipster
+      - name: docker-compose
+        run: |
+          docker exec -t containertest ansible-playbook dockercompose.yml -e ansible_become_pass=jhipster -e docker_compose_version=2.5.1
+          docker exec -t containertest docker-compose version

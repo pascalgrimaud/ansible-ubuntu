@@ -6,6 +6,8 @@ This project is used to setup my Ubuntu machine :computer:
 
 ## Prerequisites
 
+### Ansible
+
 You have to install Ansible:
 
 ```
@@ -16,6 +18,17 @@ sudo apt-get install -y ansible
 
 Check your folder: `~/.ansible/`
 You must be the owner of this folder, specially if you already used `sudo ansible-playbook`.
+
+### Node.js and NPM
+
+NPM is needed to format all files, when you change some files.
+
+After installing Node, you should be able to run the following command to install development tools.
+You will only need to run this command when dependencies change in [package.json](package.json).
+
+```
+npm install
+```
 
 ## Test with Docker
 

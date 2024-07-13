@@ -1,0 +1,24 @@
+{
+  "name": "ansibleubuntu",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ansible-ubuntu",
+  "license": "UNLICENSED",
+  "scripts": {
+    "prepare": "husky",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "3.4.1",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.2",
+    "prettier-plugin-gherkin": "2.4.0",
+    "prettier-plugin-java": "2.6.0",
+    "prettier-plugin-packagejson": "2.5.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
