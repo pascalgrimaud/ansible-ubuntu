@@ -11,5 +11,12 @@
     dest: /usr/local/
     extra_opts: "--strip-components=1"
 
-- name: Configure npm global location
+- name: Remove NPM global location
+  shell: npm config set prefix
+
+- name: Upgrade global NPM
+  become: true
+  shell: npm install -g npm
+
+- name: Configure NPM global location
   shell: npm config set prefix $HOME\/.npm-global/
