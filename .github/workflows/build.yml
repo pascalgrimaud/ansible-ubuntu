@@ -73,7 +73,7 @@ jobs:
           docker exec -t containertest mvn -version
       - name: NodeJS
         run: |
-          docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=20.15.1
+          docker exec -t containertest ansible-playbook node.yml -e ansible_become_pass=jhipster -e node_version=22.19.0
           docker exec -t containertest node -v
           docker exec -t containertest npm -v
       - name: docker

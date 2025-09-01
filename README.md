@@ -129,7 +129,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=20.15.1
+ansible-playbook -v playbooks/node.yml -K -e node_version=22.19.0
 ```
 
 ### tilix
