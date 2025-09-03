@@ -69,7 +69,7 @@ jobs:
           docker exec -t containertest javac -version
       - name: Maven
         run: |
-          docker exec -t containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.9.6
+          docker exec -t containertest ansible-playbook maven.yml -e ansible_become_pass=jhipster -e maven_version=3.9.11
           docker exec -t containertest mvn -version
       - name: NodeJS
         run: |
