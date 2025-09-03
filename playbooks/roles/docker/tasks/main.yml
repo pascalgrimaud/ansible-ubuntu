@@ -1,16 +1,16 @@
 ---
 - name: Download container.io
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/containerd.io_{{container_version}}_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/containerd.io_{{container_version}}_amd64.deb'
     dest: /tmp/
 
 - name: Download docker-ce-cli
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_{{docker_version}}~ubuntu.22.04~jammy_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-ce-cli_{{docker_version}}~ubuntu.24.04~noble_amd64.deb'
     dest: /tmp/
 - name: Download docker-ce
   get_url:
-    url: 'https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce_{{docker_version}}~ubuntu.22.04~jammy_amd64.deb'
+    url: 'https://download.docker.com/linux/ubuntu/dists/noble/pool/stable/amd64/docker-ce_{{docker_version}}~ubuntu.24.04~noble_amd64.deb'
     dest: /tmp/
 
 - name: Install container.io
@@ -20,11 +20,11 @@
 - name: Install docker-ce-cli
   become: true
   apt:
-    deb: /tmp/docker-ce-cli_{{docker_version}}~ubuntu.22.04~jammy_amd64.deb
+    deb: /tmp/docker-ce-cli_{{docker_version}}~ubuntu.24.04~noble_amd64.deb
 - name: Install docker-ce
   become: true
   apt:
-    deb: /tmp/docker-ce_{{docker_version}}~ubuntu.22.04~jammy_amd64.deb
+    deb: /tmp/docker-ce_{{docker_version}}~ubuntu.24.04~noble_amd64.deb
 
 - name: Add to Docker group
   become: true
