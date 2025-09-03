@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 RUN \
   # configure the "jhipster" user
   groupadd jhipster && \
