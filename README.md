@@ -47,7 +47,7 @@ docker run --rm -it ansible:test bash
 Start the container, with volume, so you can change the code directly:
 
 ```
-docker run --rm -it -v "$PWD":/home/jhipster/app/ ansible:test bash
+docker run --rm -it -v "$PWD":/home/chips/app/ ansible:test bash
 ```
 
 ## Roles
