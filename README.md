@@ -104,6 +104,14 @@ To install OpenJDK 21 :
 ansible-playbook -v playbooks/openjdk21.yml -K
 ```
 
+### OpenJDK 25
+
+To install OpenJDK 25 :
+
+```
+ansible-playbook -v playbooks/openjdk25.yml -K
+```
+
 ### Maven
 
 To install Maven :
@@ -129,7 +137,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=22.19.0
+ansible-playbook -v playbooks/node.yml -K -e node_version=24.10.0
 ```
 
 ### tilix
