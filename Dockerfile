@@ -1,4 +1,7 @@
 FROM ubuntu:noble
+
+ENV JAVA_HOME="/home/chips/.sdkman/candidates/java/current"
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 RUN \
   # configure the "chips" user
   groupadd chips && \
