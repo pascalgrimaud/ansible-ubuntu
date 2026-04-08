@@ -96,30 +96,6 @@ To install SDKMAN with Java 17, 21 and 25:
 ansible-playbook -v playbooks/sdkman.yml
 ```
 
-### OpenJDK 17
-
-To install OpenJDK 17 :
-
-```
-ansible-playbook -v playbooks/openjdk17.yml -K
-```
-
-### OpenJDK 21
-
-To install OpenJDK 21 :
-
-```
-ansible-playbook -v playbooks/openjdk21.yml -K
-```
-
-### OpenJDK 25
-
-To install OpenJDK 25 :
-
-```
-ansible-playbook -v playbooks/openjdk25.yml -K
-```
-
 ### Maven
 
 To install Maven :
