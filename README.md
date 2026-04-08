@@ -88,6 +88,14 @@ Launch this playbook to create a `.custom` file at your home, then customize it:
 ansible-playbook -v playbooks/custom.yml -u $USER
 ```
 
+### SDKMAN
+
+To install SDKMAN with Java 17, 21 and 25:
+
+```
+ansible-playbook -v playbooks/sdkman.yml
+```
+
 ### OpenJDK 17
 
 To install OpenJDK 17 :

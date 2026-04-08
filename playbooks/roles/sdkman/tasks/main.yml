@@ -1,0 +1,17 @@
+---
+- name: Install sdkman
+  shell: curl -s "https://get.sdkman.io" | bash
+  args:
+    creates: '~/.sdkman/bin/sdkman-init.sh'
+
+- name: Install Java versions
+  shell: |
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk install java {{ item }}
+  args:
+    executable: /bin/bash
+    creates: '~/.sdkman/candidates/java/{{ item }}'
+  loop:
+    - 17.0.18-tem
+    - 21.0.9-tem
+    - 25.0.1-tem
