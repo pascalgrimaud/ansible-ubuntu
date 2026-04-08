@@ -88,28 +88,12 @@ Launch this playbook to create a `.custom` file at your home, then customize it:
 ansible-playbook -v playbooks/custom.yml -u $USER
 ```
 
-### OpenJDK 17
+### SDKMAN
 
-To install OpenJDK 17 :
-
-```
-ansible-playbook -v playbooks/openjdk17.yml -K
-```
-
-### OpenJDK 21
-
-To install OpenJDK 21 :
+To install SDKMAN with Java 17, 21 and 25:
 
 ```
-ansible-playbook -v playbooks/openjdk21.yml -K
-```
-
-### OpenJDK 25
-
-To install OpenJDK 25 :
-
-```
-ansible-playbook -v playbooks/openjdk25.yml -K
+ansible-playbook -v playbooks/sdkman.yml
 ```
 
 ### Maven
@@ -123,7 +107,7 @@ ansible-playbook -v playbooks/maven.yml -K
 To install a specific version of Maven :
 
 ```
-ansible-playbook -v playbooks/maven.yml -K -e maven_version=3.9.11
+ansible-playbook -v playbooks/maven.yml -K -e maven_version=3.9.14
 ```
 
 ### NodeJS
@@ -137,7 +121,7 @@ ansible-playbook -v playbooks/node.yml -K
 To install a specific version of NodeJS :
 
 ```
-ansible-playbook -v playbooks/node.yml -K -e node_version=24.10.0
+ansible-playbook -v playbooks/node.yml -K -e node_version=24.14.1
 ```
 
 ### tilix

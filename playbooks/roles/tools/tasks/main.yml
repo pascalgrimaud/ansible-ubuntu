@@ -17,6 +17,18 @@
     name: wget
     state: latest
 
+- name: Install zip
+  become: true
+  apt:
+    name: zip
+    state: latest
+
+- name: Install unzip
+  become: true
+  apt:
+    name: unzip
+    state: latest
+
 - name: Install gnome-tweaks
   become: true
   apt:
