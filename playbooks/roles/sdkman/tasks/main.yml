@@ -4,6 +4,15 @@
   args:
     creates: '~/.sdkman/bin/sdkman-init.sh'
 
+- name: Update SDKMAN configuration
+  lineinfile:
+    path: '~/.sdkman/etc/config'
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  loop:
+    - { regexp: '^#?\s*sdkman_auto_env=', line: 'sdkman_auto_env=true' }
+    - { regexp: '^#?\s*sdkman_selfupdate_feature=', line: 'sdkman_selfupdate_feature=false' }
+
 - name: Install Java versions
   shell: |
     source "$HOME/.sdkman/bin/sdkman-init.sh"
