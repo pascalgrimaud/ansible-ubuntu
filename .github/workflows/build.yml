@@ -67,7 +67,7 @@ jobs:
       - name: sdkman
         run: |
           docker exec -t containertest ansible-playbook sdkman.yml
-          docker exec -t containertest source ~/.bashrc
+          docker exec -t containertest sdk version
           docker exec -t containertest java -version
           docker exec -t containertest javac -version
       - name: Maven
