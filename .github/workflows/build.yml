@@ -67,9 +67,9 @@ jobs:
       - name: sdkman
         run: |
           docker exec -t containertest ansible-playbook sdkman.yml
-          docker exec -t containertest sdk version
-          docker exec -t containertest java -version
-          docker exec -t containertest javac -version
+          docker exec -t containertest bash -c 'source $HOME/.sdkman/bin/sdkman-init.sh && sdk version'
+          docker exec -t containertest bash -c 'source $HOME/.sdkman/bin/sdkman-init.sh && java -version'
+          docker exec -t containertest bash -c 'source $HOME/.sdkman/bin/sdkman-init.sh && javac -version'
       - name: Maven
         run: |
           docker exec -t containertest ansible-playbook maven.yml -e ansible_become_pass=chips -e maven_version=3.9.14
